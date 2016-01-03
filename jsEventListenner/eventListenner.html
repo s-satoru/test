@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>イベントリスナ</title>
+  </head>
+
+  <body>
+  <script type="text/javascript">
+  <!--
+  /*
+   * windowオブジェクトの読み込みが完了後に
+   * 登録するイベントリスナ。
+   *
+   * [ イベントリスナとして登録するイベントハンドラ ]
+   * init : 初期化処理
+   */
+  window.addEventListener('load', init, false);
+  
+  /* 
+   * init() イベントハンドラ
+   *
+   * 初期処理用のイベントハンドラをイベントリスナに登録する。
+   */
+  function init() {
+    var log1 = 'テストログ１';
+    var log2 = 'テストログ２';
+    var log3 = 'テストログ３';
+    var log4 = 'テストログ４';
+    
+    // windowオブジェクトのイベントに関連付けられるイベントハンドラをイベントリスナに登録
+    window.addEventListener('click', function() { console.log(log1); }, false);
+    window.addEventListener('click', function() { console.log(log2); }, false);
+    
+    // documentオブジェクトのイベントに関連付けられるイベントハンドラをイベントリスナに登録
+    window.document.getElementById('test').addEventListener('click', function() { console.log(log3); }, false);
+    window.document.getElementById('test').addEventListener('click', function() { console.log(log4); }, false);
+  }
+  //-->
+  </script>
+  <h1>イベントリスナ</h1>
+  
+  <p>イベントリスナに登録されたイベントハンドラにより<br/>同一要素の同一イベントに対して複数の処理を実行することができる。</p>
+  
+  <button id="test">ボタン</button>
+  
+  </body>
+</html>
